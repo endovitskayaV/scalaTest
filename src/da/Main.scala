@@ -3,12 +3,22 @@ package da
 
 object Main {
   def main(args: Array[String]) {
-    var pattern = "Scala Developer".r
-    var scalaDeveloper = "Eugene Suleimanov is a Java/Scala Developer"
-    println(pattern findFirstIn scalaDeveloper)
+    println(apply("Eugene Suleimanov", "Java/Scala Developer"))
+    println(unapply("Ivan Ivanov: C++ Developer"))
+    println(unapply("Kolya Nikolaev - PHP Developer"))
+  }
 
-    pattern = "C".r
-    scalaDeveloper = "Eugene Suleimanov is C developer"
-    println(pattern replaceAllIn(scalaDeveloper, "Java/Scala"))
+  def apply(name: String, specialty: String) = {
+    name + ": " + specialty
+  }
+
+  def unapply(str: String): Option[(String, String)] = {
+    val stringParts = str split ":"
+
+    if (stringParts.length == 2) {
+      Some(stringParts(0), stringParts(1))
+    } else {
+      None
+    }
   }
 }
