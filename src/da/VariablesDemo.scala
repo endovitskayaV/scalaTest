@@ -1,21 +1,25 @@
 package da
 
 import scala.util.control.Breaks
+import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    val integerList = List(10, 20, 30, 40, 50);
-
-    val filteredValue = for {counter <- integerList if counter != 10; if counter < 50}
-      yield counter
-
-    val loop = new Breaks;
-    loop.breakable({
-      for (counter <- filteredValue) {
-        println(counter)
-        loop.break()
-      }
+    val integerArray = Array(1, 2)
+    val integerArray1 = new  Array[String](10)
+    println("integerArray: ")
+    for (arrayElement <- integerArray) {
+      print(arrayElement + " ")
     }
-    )
+//concat(integerArray, integerArray1,integerArray)
+    println()
+
+    var integerArrayTotalSum = 0
+
+    for (arrayElement <- integerArray) {
+      integerArrayTotalSum += arrayElement
+    }
+
+    println("Total sum of array elements is: " + integerArrayTotalSum)
   }
 }
