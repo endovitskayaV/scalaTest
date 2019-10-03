@@ -5,22 +5,43 @@ import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    var simpleIterator = Iterator("This ", "is ", "simple ", "iterator.")
+    val skills: List[String] = List("Java", "Scala", "SQL", "NoSQL", "Hibernate")
 
-    while ( {
-      simpleIterator.hasNext
-    }) print(simpleIterator.next)
+    val salaries: List[Int] = List(10, 20, 30, 40, 50)
 
-    simpleIterator = Iterator("This ", "is ", "simple ", "iterator.")
+    println("skills:" + skills)
+    println("salaries: " + salaries)
 
-    println
-    println("Length of simpleIterator: " + simpleIterator.length)
+    val skills1 = "Java" :: "Scala" :: Nil
+    val salaries1 = 10 :: (20 :: (30 :: (40 :: (50 :: Nil))))
 
-    var integerIterator = Iterator(1, 2, 3, 4, 5, 6)
-    println
-    println("Min value of integerIterator: " + integerIterator.min)
+    println("skills:" + skills1)
+    println("salaries: " + salaries1)
+    //----------------------------
+    val twoDimensionalList: List[List[String]] =
+      List(
+        List("A", "B", "C"),
+        List("D", "E", "F")
+      )
 
-    integerIterator = Iterator(1, 2, 3, 4, 5, 6)
-    println("Max value of integerIterator: " + integerIterator.max)
+    println("twoDimensionalList:")
+    println(twoDimensionalList)
+
+    //----------------------------
+    val nothingList: List[Nothing] = List()
+
+    println("nothingList: " + nothingList)
+
+    //------------------------
+    val list1 = 1 :: (2 :: (3 :: Nil))
+    val list2 = 4 :: (5 :: (6 :: Nil))
+
+    println("list1: " + list1)
+    println("list2: " + list2)
+
+    val commonList = List.concat(list1, list2)
+    println("commonList" + commonList)
+
+    println("Reversed commonList: " + commonList.reverse)
   }
 }
