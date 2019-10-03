@@ -1,16 +1,17 @@
 package da
+import java.io._
+import scala.io.Source
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    try {
-      val result = 100 / 0
-      println(result)
-    } catch {
-      case ex: ArithmeticException => {
-        println("ArithmeticException - cannot divide by zero")
-      }
-    }finally {
-      println("Block finally. This message will be shown in most cases.")
+    val filePath = "textFile.txt"
+
+    val writer = new PrintWriter(new File(filePath))
+    writer.write("This is simple text file.")
+    writer.close()
+
+    Source.fromFile(filePath).foreach {
+      print
     }
   }
 }
