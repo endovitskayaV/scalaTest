@@ -5,18 +5,22 @@ import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    val developerName = "Eugene Suleimanov";
+    var simpleIterator = Iterator("This ", "is ", "simple ", "iterator.")
 
-    println(s"Developer name: $developerName");
-    println(s"100 * 8 = ${100 * 8}");
+    while ( {
+      simpleIterator.hasNext
+    }) print(simpleIterator.next)
 
-    val product = "Milk";
-    val price = 12.5d;
+    simpleIterator = Iterator("This ", "is ", "simple ", "iterator.")
 
-    println(f"$product%s price is: $price%2.2f");
+    println
+    println("Length of simpleIterator: " + simpleIterator.length)
 
+    var integerIterator = Iterator(1, 2, 3, 4, 5, 6)
+    println
+    println("Min value of integerIterator: " + integerIterator.min)
 
-    println(raw"This \b String ignores \n escape sequences \n");
-
+    integerIterator = Iterator(1, 2, 3, 4, 5, 6)
+    println("Max value of integerIterator: " + integerIterator.max)
   }
 }
