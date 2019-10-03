@@ -5,43 +5,27 @@ import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    val skills: List[String] = List("Java", "Scala", "SQL", "NoSQL", "Hibernate")
+    var users = Map(1 -> "Ivan Ivanov", 2 -> "Kolya Nikolaev", 3 -> "Viktor Viktorov")
+    var users2 = Map()
 
-    val salaries: List[Int] = List(10, 20, 30, 40, 50)
+    println("users: " + users)
+    println("users keys: " + users.keys)
+    println("users values: " + users.values)
 
-    println("skills:" + skills)
-    println("salaries: " + salaries)
+    println("users2: " + users2)
+    println("users2 keys: " + users2.keys)
+    println("users2 values: " + users2.values)
 
-    val skills1 = "Java" :: "Scala" :: Nil
-    val salaries1 = 10 :: (20 :: (30 :: (40 :: (50 :: Nil))))
 
-    println("skills:" + skills1)
-    println("salaries: " + salaries1)
-    //----------------------------
-    val twoDimensionalList: List[List[String]] =
-      List(
-        List("A", "B", "C"),
-        List("D", "E", "F")
-      )
+    val moreUsers = Map(4 -> "Innokentii Morozov", 5 -> "Mikhail Mikheev")
 
-    println("twoDimensionalList:")
-    println(twoDimensionalList)
+    println("moreUsers: " + moreUsers)
 
-    //----------------------------
-    val nothingList: List[Nothing] = List()
+    users = users ++ moreUsers
 
-    println("nothingList: " + nothingList)
+    println("users: " + users)
 
-    //------------------------
-    val list1 = 1 :: (2 :: (3 :: Nil))
-    val list2 = 4 :: (5 :: (6 :: Nil))
-
-    println("list1: " + list1)
-    println("list2: " + list2)
-
-    val commonList = List.concat(list1, list2)
-    println("commonList" + commonList)
-
-    println("Reversed commonList: " + commonList.reverse)
+    println("users contains key 1: " + users.contains(1))
+    println("users contains key 100: " + users.contains(100))
   }
 }
