@@ -5,17 +5,21 @@ import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    val skills1 = Set("Java", "Java", "SQL", "SQL")
-    val skills2 = Set("Scala", "Scala", "Play", "Play")
+    val simpleTuple = ("String", 100500, "FFFFF")
 
-    println("skills1: " + skills1)
-    println("skills2: " + skills2)
+    println("simpleTuple: ")
+    simpleTuple.productIterator.foreach { element => println("Element: " + element) }
 
-    val allSkills = skills1 ++ skills2
+    val integerTuple = ("1", 2, 3,"rt")
 
-    println("allSkills: " + allSkills)
+    val integerTupleSum = integerTuple._1 + integerTuple._2 + integerTuple._3 + integerTuple._4
 
-    println("Max element allSkills: " + allSkills.max)
-    println("Min element allSkills: " + allSkills.min)
+    println("integerTuple: " + integerTuple)
+    println("integerTupleSum: " + integerTupleSum)
+
+    val stringTuple = Tuple2("First", "Second")
+
+    println("stringTuple: " + stringTuple)
+    println("Swapped integerTuple: " + stringTuple.swap)
   }
 }
