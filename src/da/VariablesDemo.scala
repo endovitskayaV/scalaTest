@@ -5,10 +5,18 @@ import Array._
 
 object VariablesDemo {
   def main(args: Array[String]) {
-    println("devider(300): " + devider(301))
-    println("devider(600): " + devider(600))
-  }
+    val developerName = "Eugene Suleimanov";
 
-  var deviderFactor = 2
-  val devider = (i: Int) => i % deviderFactor
+    println(s"Developer name: $developerName");
+    println(s"100 * 8 = ${100 * 8}");
+
+    val product = "Milk";
+    val price = 12.5d;
+
+    println(f"$product%s price is: $price%2.2f");
+
+
+    println(raw"This \b String ignores \n escape sequences \n");
+
+  }
 }
