@@ -2,15 +2,29 @@ package da
 
 
 object Main {
-  def main(args: Array[String]) {
+  abstract class Monoid[A] {
+    def add(x: A, y: A): A
+    def unit: A
   }
 
-  trait User {
-     def username: String
-  }
+  object ImplicitTest {
+    implicit val stringMonoid: Monoid[String] = new Monoid[String] {
+      def add(x: String, y: String): String = x concat y
+      def unit: String = ""
+    }
 
-  trait Tweeter {
-    this: User =>  // переназначил this
-    def tweet(tweetText: String) = println(s"$username: $tweetText")
+    implicit val intMonoid: Monoid[Int] = new Monoid[Int] {
+      def add(x: Int, y: Int): Int = x + y
+      def unit: Int = 0
+    }
+
+    def sum[A](xs: List[A])(implicit m: Monoid[A]): A =
+      if (xs.isEmpty) m.unit
+      else m.add(xs.head, sum(xs.tail))
+
+    def main(args: Array[String]): Unit = {
+      println(sum(List(1, 2, 3)))       // использует intMonoid неявно
+      println(sum(List("a", "b", "c"))) // использует stringMonoid неявно
+    }
   }
   }
