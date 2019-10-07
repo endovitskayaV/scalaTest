@@ -3,22 +3,14 @@ package da
 
 object Main {
   def main(args: Array[String]) {
-    println(apply("Eugene Suleimanov", "Java/Scala Developer"))
-    println(unapply("Ivan Ivanov: C++ Developer"))
-    println(unapply("Kolya Nikolaev - PHP Developer"))
   }
 
-  def apply(name: String, specialty: String) = {
-    name + ": " + specialty
+  trait User {
+     def username: String
   }
 
-  def unapply(str: String): Option[(String, String)] = {
-    val stringParts = str split ":"
-
-    if (stringParts.length == 2) {
-      Some(stringParts(0), stringParts(1))
-    } else {
-      None
-    }
+  trait Tweeter {
+    this: User =>  // переназначил this
+    def tweet(tweetText: String) = println(s"$username: $tweetText")
   }
-}
+  }
